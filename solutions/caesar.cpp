@@ -13,7 +13,7 @@ int main() {
     int shift;
     wcout << L"Введите сдвиг (вправо - положительный, влево - отрицательный): ";
     wcin >> shift;
-    shift = shift % 32 + 32;
+    shift = shift % 32;
 
     wstring opType;
     wcout << L"Хотите зашифровать (0), или расшифровать (1) фразу: ";
@@ -22,18 +22,18 @@ int main() {
     if (opType == L"0") {
         for (wchar_t& letter : source) {
             if (letter >= L'А' && letter <= L'Я') {
-                letter = L'А' + ((letter - L'А' + shift) % 32);
+                letter = L'А' + ((letter - L'А' + shift + 32) % 32);
             } else if (letter >= L'а' && letter <= L'я') {
-                letter = L'а' + ((letter - L'а' + shift) % 32);
+                letter = L'а' + ((letter - L'а' + shift + 32) % 32);
             }
         }
         wcout << L"Зашифрованная фраза: " << source << endl;
     } else if (opType == L"1") {
         for (wchar_t& letter : source) {
             if (letter >= L'А' && letter <= L'Я') {
-                letter = L'А' + ((letter - L'А' - shift) % 32);
+                letter = L'А' + ((letter - L'А' - shift + 32) % 32);
             } else if (letter >= L'а' && letter <= L'я') {
-                letter = L'а' + ((letter - L'а' - shift) % 32);
+                letter = L'а' + ((letter - L'а' - shift + 32) % 32);
             }
         }
         wcout << L"Расшифрованная фраза: " << source << endl;
