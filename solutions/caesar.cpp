@@ -37,8 +37,7 @@ int main() {
             }
         }
         wcout << L"Расшифрованная фраза: " << source << endl;
-    }
-    else {
+    } else {
         wcout << L"Неверный ввод операции";
     }
 
